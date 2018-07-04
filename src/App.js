@@ -22,7 +22,6 @@ class App extends Component {
   };
 
   handleKeyDown = e => {
-    console.log(e.keyCode);
     switch (e.keyCode) {
       case 81:
         this.playAudio('Q');
@@ -51,6 +50,7 @@ class App extends Component {
       case 67:
         this.playAudio('C');
         break;
+      default:
     }
   };
 
@@ -64,12 +64,7 @@ class App extends Component {
 
   render() {
     return (
-      <div
-        className="App"
-        onKeyDown={e => {
-          console.log(e);
-        }}
-      >
+      <div className="App">
         <div id="drum-machine">
           <div id="display">{this.state.playing}</div>
 

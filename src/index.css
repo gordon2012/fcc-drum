@@ -2,4 +2,64 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+  background: #ddd;
+}
+
+.App {
+  max-width: 1200px;
+  margin: 0 auto;
+  min-height: 100vh;
+  display: flex;
+}
+
+#drum-machine {
+  margin: 2em;
+}
+
+#display,
+.drum-pad {
+  font-size: 5em;
+  text-align: center;
+}
+.drum-pad {
+  background: white;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+.drum-pad:hover {
+  color: whitesmoke;
+  background: #333;
+  cursor: pointer;
+}
+
+/* GRID+FLEX LAYOUT */
+#drum-machine {
+  flex: 1;
+  display: grid;
+  grid-gap: 2em;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+}
+#display {
+  grid-column: span 3;
+}
+#display,
+.drum-pad {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+@media (max-width: 750px) {
+  #drum-machine {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+  }
+  #display {
+    grid-column: span 4;
+  }
+  .drum-pad {
+    grid-column: span 2;
+  }
+  #tom {
+    grid-column: 2 / span 2;
+  }
 }
