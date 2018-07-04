@@ -21,9 +21,55 @@ class App extends Component {
     this.setState({ playing: audio });
   };
 
+  handleKeyDown = e => {
+    console.log(e.keyCode);
+    switch (e.keyCode) {
+      case 81:
+        this.playAudio('Q');
+        break;
+      case 87:
+        this.playAudio('W');
+        break;
+      case 69:
+        this.playAudio('E');
+        break;
+      case 65:
+        this.playAudio('A');
+        break;
+      case 83:
+        this.playAudio('S');
+        break;
+      case 68:
+        this.playAudio('D');
+        break;
+      case 90:
+        this.playAudio('Z');
+        break;
+      case 88:
+        this.playAudio('X');
+        break;
+      case 67:
+        this.playAudio('C');
+        break;
+    }
+  };
+
+  componentDidMount() {
+    document.addEventListener('keydown', this.handleKeyDown);
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener('keydown', this.handleKeyDown);
+  }
+
   render() {
     return (
-      <div className="App">
+      <div
+        className="App"
+        onKeyDown={e => {
+          console.log(e);
+        }}
+      >
         <div id="drum-machine">
           <div id="display">{this.state.playing}</div>
 
